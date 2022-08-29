@@ -1,0 +1,9 @@
+.srpp-floating-container {
+  position: fixed !important;
+  top: 240px;
+  bottom: 0;
+  z-index: 1;
+  transition: all 0.3s ease 0s;
+  background-color: #ffffff;
+  overflow: auto;
+}

@@ -1,0 +1,44 @@
+{
+  "name": "showroomprive-plus",
+  "version": "1.0.0",
+  "description": "",
+  "targets": {
+    "webext-dev": {
+      "sourceMap": {
+        "inline": true,
+        "inlineSources": true
+      }
+    },
+    "webext-prod": {
+      "distDir": "build"
+    }
+  },
+  "scripts": {
+    "start": "parcel src/manifest.json --host localhost --target webext-dev",
+    "build": "parcel build src/manifest.json --target webext-prod && web-ext build -s build -a . -o true",
+    "sign": "web-ext sign -s build -a . --api-key=$(grep API_KEY .env | cut -d '=' -f2) --api-secret=$(grep API_SECRET .env | cut -d '=' -f2)"
+  },
+  "author": "Keops",
+  "license": "ISC",
+  "devDependencies": {
+    "@parcel/config-webextension": "^2.7.0",
+    "@types/firefox": "^0.0.31",
+    "@types/firefox-webext-browser": "^94.0.1",
+    "@types/web": "^0.0.72",
+    "@typescript-eslint/eslint-plugin": "^5.35.1",
+    "eslint": "^8.23.0",
+    "eslint-config-standard-with-typescript": "^22.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.2.5",
+    "eslint-plugin-promise": "^6.0.1",
+    "parcel": "^2.7.0",
+    "parcel-reporter-web-ext": "^0.3.2",
+    "path-browserify": "^1.0.1",
+    "prettier": "^2.7.1",
+    "typescript": "^4.8.2",
+    "web-ext": "^7.2.0"
+  },
+  "dependencies": {
+    "winston": "^3.8.1"
+  }
+}

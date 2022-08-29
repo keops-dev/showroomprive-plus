@@ -1,0 +1,21 @@
+{
+  "manifest_version": 2,
+  "name": "Showroomprive+",
+  "version": "1.0.0",
+  "icons": {
+    "450": "resources/icons/showroomprive-plus-logo.png"
+  },
+  "browser_action": {
+    "default_icon": "resources/icons/showroomprive-plus-logo.png",
+    "default_title": "Showroomprive+"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.showroomprive.com/*"],
+      "js": ["showroomprive.ts"]
+    }
+  ],
+  "background": {
+    "scripts": ["logger.ts"]
+  }
+}
